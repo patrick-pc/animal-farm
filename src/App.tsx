@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import './App.css'
 
 function useAnimalSearch() {
   interface Test {
@@ -32,16 +31,19 @@ function App() {
   const { search, animals } = useAnimalSearch()
 
   return (
-    <main>
-      <h1>Animal Farm</h1>
+    <main className="flex flex-col">
+      <h1 className="flex-auto self-center m-4 mt-8 text-4xl font-semibold">
+        Animal Farm
+      </h1>
 
       <input
+        className="flex-auto self-center m-4 p-5 text-lg border-2 rounded-lg border-gray-400"
         type="text"
         placeholder="Search"
         onChange={(e) => search(e.target.value)}
       />
 
-      <ul>
+      <ul className="flex-auto self-center m-4 text-lg">
         {animals.map((animal) => (
           <li key={animal.id}>
             <strong>{animal.type}</strong> {animal.name} ({animal.age} years
