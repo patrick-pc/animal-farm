@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
-function App() {
+function useAnimalSearch() {
   interface Test {
     id: number
     type: string
@@ -24,6 +24,12 @@ function App() {
 
     localStorage.setItem('lastQuery', q)
   }
+
+  return { search, animals }
+}
+
+function App() {
+  const { search, animals } = useAnimalSearch()
 
   return (
     <main>
